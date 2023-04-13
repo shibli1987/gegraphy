@@ -1,1 +1,119 @@
 # gegraphy
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2023 by anonymous (http://jsbin.com/habironife/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+	<title>حاسبة الميزان التجاري</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		h1 {
+			text-align: center;
+			color: #555;
+		}
+		
+		form {
+			margin: 50px auto;
+			max-width: 400px;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+			border-radius: 5px;
+		}
+		
+		label {
+			display: block;
+			margin-bottom: 10px;
+			color: #555;
+		}
+		
+		input[type="number"] {
+			display: block;
+			width: 100%;
+			padding: 10px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0 0 5px rgba(0,0,0,0.1);
+			font-size: 16px;
+			margin-bottom: 20px;
+		}
+		
+		button {
+			display: block;
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 10px;
+			font-size: 16px;
+			cursor: pointer;
+		}
+		
+		button:hover {
+			background-color: #3e8e41;
+		}
+		
+		.result {
+			margin-top: 20px;
+			font-size: 24px;
+			font-weight: bold;
+			color: #555;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<h1>حاسبة الميزان التجاري</h1>
+	<form onsubmit="calculateBalance(event)">
+		<label for="exports">الصادرات:</label>
+		<input type="number" id="exports" required>
+		<label for="imports">الواردات:</label>
+		<input type="number" id="imports" required>
+		<button type="submit">احسب الميزان التجاري</button>
+		<div class="result" id="result"></div>
+	</form>
+	
+	<script>
+		function calculateBalance(event) {
+			event.preventDefault();
+			var exports = document.getElementById("exports").value;
+			var imports = document.getElementById("imports").value;
+			var balance = exports - imports;
+			document.getElementById("result").innerHTML = "الميزان التجاري: " + balance;
+		}
+	</script>
+<script id="jsbin-javascript">
+function calculateBalance(event) {
+	event.preventDefault();
+	var exports = document.getElementById("exports").value;
+	var imports = document.getElementById("imports").value;
+	var balance = exports - imports;
+	document.getElementById("result").innerHTML = "الميزان التجاري: " + balance;
+	
+	if (balance > 0) {
+		document.getElementById("result").innerHTML += " (فائض)";
+	} else if (balance < 0) {
+		document.getElementById("result").innerHTML += " (عجز)";
+	}
+}
+
+</script>
+</body>
+</html>
+<footer>
+  <p>اعداد قسم مادة الجغرافيا بمدرسة الفاروق للتعليم الأساسي 10-12</p>
+</footer>
+
